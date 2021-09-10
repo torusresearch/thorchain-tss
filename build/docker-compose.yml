@@ -12,7 +12,7 @@ services:
     #image: registry.gitlab.com/thorchain/tss/go-tss
     restart: unless-stopped
     environment:
-      - PRIVKEY=${TSS_0}
+      - PRIVKEY=MjQ1MDc2MmM4MjU5YjRhZjhhNmFjMmI0ZDBkNzBkOGE1ZTBmNDQ5NGI4NzM4OTYyM2E3MmI0OWMzNmE1ODZhNw==
       - NET=testnet
     command: /go/bin/start.bash
     networks:
@@ -30,7 +30,7 @@ services:
     #image: registry.gitlab.com/thorchain/tss/go-tss
     restart: unless-stopped
     environment:
-      - PRIVKEY=${TSS_1}
+      - PRIVKEY=YmNiMzA2ODU1NWNjMzk3NDE1OWMwMTM3MDU0NTNjN2YwMzYzZmVhZDE5NmU3NzRhOTMwOWIxN2QyZTQ0MzdkNg==
       - NET=testnet
     depends_on:
       - tss0
@@ -50,7 +50,7 @@ services:
     #image: registry.gitlab.com/thorchain/tss/go-tss
     restart: unless-stopped
     environment:
-      - PRIVKEY=${TSS_2}
+      - PRIVKEY=ZThiMDAxOTk2MDc4ODk3YWE0YThlMjdkMWY0NjA1MTAwZDgyNDkyYzdhNmMwZWQ3MDBhMWIyMjNmNGMzYjVhYg==
       - NET=testnet
     depends_on:
       - tss0
@@ -69,7 +69,7 @@ services:
     #image: registry.gitlab.com/thorchain/tss/go-tss
     restart: unless-stopped
     environment:
-      - PRIVKEY=${TSS_3}
+      - PRIVKEY=ZTc2ZjI5OTIwOGVlMDk2N2M3Yzc1MjYyODQ0OGUyMjE3NGJiOGRmNGQyZmVmODg0NzQwNmUzYTk1YmQyODlmNA==
       - NET=testnet
     depends_on:
       - tss0

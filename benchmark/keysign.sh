@@ -1,12 +1,14 @@
 #!/bin/sh
 
 #How to run
-# sh keysign.sh <<pub_key from keygen>> <<message to sign>>
+# sh keysign.sh <<pub_key from keygen>> <<base64 message to sign>>
+# example:
+# sh keysign.sh thorpub1addwnpepqd5jn2jnvhrp7vswp53h72y3adtghvyfhgk8ycvvz25j94rym5je65w2mxc MHhlNjJlYjA2ODcwNjJjZWQ3NjNlOTRjNWI0NjkzMGQ1NzFkNDZlYzJlNjY5MWQ1MWIzODI2YTE5ZmIzZGY1OTY4
 
 keysignRequest=$(cat <<EOF
               {
                   "pool_pub_key": "$1",
-                  "message": "$2",
+                  "messages": ["$2"],
                   "signer_pub_keys": [
                       "thorpub1addwnpepqtdklw8tf3anjz7nn5fly3uvq2e67w2apn560s4smmrt9e3x52nt2svmmu3",
                       "thorpub1addwnpepqtspqyy6gk22u37ztra4hq3hdakc0w0k60sfy849mlml2vrpfr0wvm6uz09",
@@ -26,7 +28,7 @@ do_keysign() {
   return 1
 }
 
-start=`date +%s`
+start=`gdate +%s.%N`
 {
   res1=$(do_keysign http://localhost:8080/keysign)
   echo "Response from Node 1 ${res1}"
@@ -44,7 +46,7 @@ start=`date +%s`
   echo "Response from Node 4 ${res4}"
 }&
 wait
-end=`date +%s`
+end=`gdate +%s.%N`
 runtime=$( echo "$end - $start" | bc -l )
 
 echo "Keysign Complete. Took ${runtime} seconds"

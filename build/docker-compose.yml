@@ -39,45 +39,6 @@ services:
       localnet:
         ipv4_address: 192.168.10.2
 
-  tss2:
-    hostname: tss2
-    ports:
-      - 8082:8080
-      - 6667:6668
-    build:
-      context: ../
-      dockerfile: Dockerfile
-    #image: registry.gitlab.com/thorchain/tss/go-tss
-    restart: unless-stopped
-    environment:
-      - PRIVKEY=ZThiMDAxOTk2MDc4ODk3YWE0YThlMjdkMWY0NjA1MTAwZDgyNDkyYzdhNmMwZWQ3MDBhMWIyMjNmNGMzYjVhYg==
-      - NET=testnet
-    depends_on:
-      - tss0
-    command: /go/bin/start-tss.bash
-    networks:
-      localnet:
-        ipv4_address: 192.168.10.3
-  tss3:
-    hostname: tss3
-    ports:
-      - 8083:8080
-      - 6666:6668
-    build:
-      context: ../
-      dockerfile: Dockerfile
-    #image: registry.gitlab.com/thorchain/tss/go-tss
-    restart: unless-stopped
-    environment:
-      - PRIVKEY=ZTc2ZjI5OTIwOGVlMDk2N2M3Yzc1MjYyODQ0OGUyMjE3NGJiOGRmNGQyZmVmODg0NzQwNmUzYTk1YmQyODlmNA==
-      - NET=testnet
-    depends_on:
-      - tss0
-    command: /go/bin/start-tss.bash
-    networks:
-      localnet:
-        ipv4_address: 192.168.10.4
-
 networks:
   localnet:
     driver: bridge

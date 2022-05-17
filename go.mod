@@ -31,7 +31,7 @@ require (
 	github.com/rs/zerolog v1.20.0
 	github.com/stretchr/testify v1.7.0
 	github.com/tendermint/btcd v0.1.1
-	github.com/tendermint/tendermint v0.34.3
+	github.com/tendermint/tendermint v0.34.9
 	gitlab.com/thorchain/binance-sdk v1.2.3-0.20210117202539-d569b6b9ba5d
 	go.uber.org/atomic v1.6.0
 	golang.org/x/crypto v0.0.0-20201221181555-eec23a3978ad
